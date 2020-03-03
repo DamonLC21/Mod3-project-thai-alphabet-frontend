@@ -1,0 +1,91 @@
+
+.alphabet-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15rem;
+    height: 10rem;
+    box-shadow: 0 6px 15px rgb(187, 186, 186);
+    height: max-content;
+    grid-gap: 10px;
+
+}
+
+.alphabet-card img {
+    padding: 2rem;
+    align-items: center;
+    width: 77%;
+} 
+
+.alphabet-card p {
+    padding: 3rem;
+    align-items: center;
+    margin-top: -2rem;
+    font-size: x-large;
+    width: 40%;
+    height: 20px;
+} 
+
+#speaker-butt{
+  width: 30%;
+} 
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    grid-row-gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-column-gap: 6px;
+    margin: auto;
+    margin-top: 5rem;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    position: relative;
+    justify-content: space-between;
+  }
+
+  
+.alphabet-card{
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.alphabet-card.flip {
+  transform: rotateY(180deg);
+}
+
+.card__face {
+  
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card__face--back {
+  position: absolute;
+  transform: rotateY(180deg);
+}
+
+.card__face--back.speakerbutt{
+  width: 10rem;
+}
+
+#buttContainer {
+   display: flex;
+   flex-direction: unset;
+   font-size: 1em;
+	 padding-bottom: 0.5em;
+   padding-left: 0.5em;
+   width: 7%;
+   margin-right: 100%;
+   margin-bottom: 10em;  
+}
