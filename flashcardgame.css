@@ -14,6 +14,7 @@ html {
     display: flex;
     justify-content: space-between;
     font-size: 1.5em;
+    width: 70%;
  }
 
 .game-container {
@@ -33,13 +34,51 @@ html {
     list-style-type: none; 
 }
 
-#frontCard {
-    padding: 2rem;
-    align-items: center;
+.card__face {
+  
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .card__face--back {
+    position: absolute;
+    transform: rotateY(180deg);
+  }
+
+  .card__face--back img {
+    width: 70%;
+    
+  }
+
+  #game-card{
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 15rem;
+    height: max-content;
     box-shadow: 0 6px 15px rgb(187, 186, 186);
-    height: 200px;
-    width: 125px;
+    
+  }
+  
+  #game-card.flip {
+    transform: rotateY(180deg);
+  }
+
+  .card__face--front img {
+    padding: 2rem;
+    width: 77%;
 } 
+
+
+
 /* 
 .score-panel .stars li {
 	list-style: none;

@@ -39,6 +39,7 @@ fetch(cards)
         div_frontcard.appendChild(img)
         div_backcard.append(p, speaker)
         li.append(div_frontcard, div_backcard)
+        cardsContainer.appendChild(li)
 
     })
 })
