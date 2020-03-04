@@ -16,8 +16,6 @@ fetch(cards)
         const p = document.createElement('p')
         const img = document.createElement('img')
         const speaker = document.createElement('img')
-        const nextpageButt = document.createElement('button')
-        
         
         
         div_frontcard.className = "card__face card__face--front"
@@ -42,7 +40,6 @@ fetch(cards)
         div_backcard.append(p, speaker)
         li.append(div_frontcard, div_backcard)
 
-        cardsContainer.appendChild(li)
     })
 })
 
