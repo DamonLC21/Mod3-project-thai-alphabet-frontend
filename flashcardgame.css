@@ -1,0 +1,61 @@
+html {
+	box-sizing: border-box;
+}
+
+.container{
+    text-align: center;
+    font-weight: normal;
+    text-align: center;
+    font-size: 3em;
+    font-family: cursive;
+}
+
+.game-info-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5em;
+ }
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+
+}
+
+.card-container{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    margin: 50px;
+    justify-content: center;
+    perspective: 500px;
+    list-style-type: none; 
+}
+
+#frontCard {
+    padding: 2rem;
+    align-items: center;
+    box-shadow: 0 6px 15px rgb(187, 186, 186);
+    height: 200px;
+    width: 125px;
+} 
+/* 
+.score-panel .stars li {
+	list-style: none;
+	display: inline-block;
+}
+
+.score-panel .restart {
+	float: right;
+	cursor: pointer;
+}
+
+.fa-star {
+	color: #FFD700;
+}
+
+.timer {
+	display: inline-block;
+	margin: 0 1rem;
+} */
