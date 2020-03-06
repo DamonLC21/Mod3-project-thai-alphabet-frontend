@@ -30,43 +30,41 @@ function shuffle(array) {
     return array
   }
 
-let shuffleDeck = shuffle(deck)
-  shuffleDeck.map(card =>{
+// let shuffleDeck = shuffle(deck)
+//   shuffleDeck.map(card =>{
     
-    const gameCardContainer= document.querySelector('.card-container')
-    const cardFace = document.createElement('div')
-    const cardBack = document.createElement('div')
-    const li = document.createElement('li')
-    const frontCardimg = document.createElement('img')
-    const backCardimg = document.createElement('img')
+//     const gameCardContainer= document.querySelector('.card-container')
+//     const cardFace = document.createElement('div')
+//     const cardBack = document.createElement('div')
+//     const li = document.createElement('li')
+//     const frontCardimg = document.createElement('img')
+//     const backCardimg = document.createElement('img')
 
-    li.dataset.letter = card.letter
-    li.id = "game-card"
-    cardFace.className = "card__face card__face--front"
-    cardBack.className = "card__face card__face--back"
-    frontCardimg.id = "frontCard"
-    frontCardimg.src = "./picture/couple.jpg"
-    backCardimg.src = card.image_url
+//     li.dataset.letter = card.letter
+//     li.id = "game-card"
+//     cardFace.className = "card__face card__face--front"
+//     cardBack.className = "card__face card__face--back"
+//     frontCardimg.id = "frontCard"
+//     frontCardimg.src = "./picture/couple.jpg"
+//     backCardimg.src = card.image_url
 
-    li.addEventListener('click',()=>{
-        li.classList.toggle('flip') 
-        li.classList.add('disabled') 
-        openedCards.push(li)
-        if (openedCards.length === 2){
-          if (openedCards[0].dataset.letter === openedCards[1].dataset.letter){
-            matchedCard()
-           
-
-          }else{
-            unFlipCards();
-          }
-        } 
-      })
-      cardFace.appendChild(frontCardimg)
-      cardBack.appendChild(backCardimg)
-      li.append(cardFace, cardBack)
-      gameCardContainer.appendChild(li)
-    })
+//     li.addEventListener('click',()=>{
+//         li.classList.toggle('flip') 
+//         li.classList.add('disabled') 
+//         openedCards.push(li)
+//         if (openedCards.length === 2){
+//           if (openedCards[0].dataset.letter === openedCards[1].dataset.letter){
+//             matchedCard()
+//           }else{
+//             unFlipCards();
+//           }
+//         } 
+//       })
+//       cardFace.appendChild(frontCardimg)
+//       cardBack.appendChild(backCardimg)
+//       li.append(cardFace, cardBack)
+//       gameCardContainer.appendChild(li)
+//     })
     
   function unFlipCards(){
     setTimeout(() => {
@@ -81,23 +79,81 @@ let shuffleDeck = shuffle(deck)
   }
     
   function matchedCard(){
+    setTimeout(() => {
     matchedCards.push(openedCards[0],openedCards[1])
     openedCards[0].classList.add("match")
     openedCards[1].classList.add("match")
-    if (matchedCards.length === 16){
-      alert("Fuck yah")
-    }
-    
     openedCards = [] 
+    if (matchedCards.length === 16){
+      setTimeout(() => alert("Fuck yah"),1100)
+    }
+  },1100);
   }
     
-  // let delay = 1200
-  // if ( openedCards[0] ===  openedCards[1]) {
-  //   setTimeout(match, delay)
-  //   setTimeout(resetGuesses, delay)
-  // } else {
-  //   setTimeout(resetGuesses, delay)
-  // }
+  for(let i = 0; i < openedCards.length; i++) {
+    openedCards[i].addEventListener("click", displayCard)
+  }
+
+
+ const timer = document.querySelector('#time-remaining')
+ let minute = 0
+ let second = 0
+  function startGame() {
+    interval = setInterval(function(){
+      timer.innerHTML =`${minute} mins ${second} secs`;
+      second++;
+      if(second == 80) {
+        clearInterval(interval)
+        minute++;
+        second = 0;
+      startGame()
+      
+      }
+    },1000)
+    const gameCardContainer= document.querySelector('.card-container')
+    gameCardContainer.innerHTML =''
+
+    let shuffleDeck = shuffle(deck)
+    shuffleDeck.map(card =>{
+      
+      const cardFace = document.createElement('div')
+      const cardBack = document.createElement('div')
+      const li = document.createElement('li')
+      const frontCardimg = document.createElement('img')
+      const backCardimg = document.createElement('img')
+  
+      li.dataset.letter = card.letter
+      li.id = "game-card"
+      cardFace.className = "card__face card__face--front"
+      cardBack.className = "card__face card__face--back"
+      frontCardimg.id = "frontCard"
+      frontCardimg.src = "./picture/couple.jpg"
+      backCardimg.src = card.image_url
+  
+      li.addEventListener('click',()=>{
+          li.classList.toggle('flip') 
+          li.classList.add('disabled') 
+          openedCards.push(li)
+          if (openedCards.length === 2){
+            if (openedCards[0].dataset.letter === openedCards[1].dataset.letter){
+              matchedCard()
+            }else{
+              unFlipCards();
+            }
+          } 
+        })
+        cardFace.appendChild(frontCardimg)
+        cardBack.appendChild(backCardimg)
+        li.append(cardFace, cardBack)
+        gameCardContainer.appendChild(li)
+      })
+  }
+
+    const startButts = document.querySelector('#start-game')
+    startButts.addEventListener('click',() => {
+        startGame()
+    
+  })
 
 
 
