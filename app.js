@@ -29,13 +29,16 @@ fetch(cards)
         speaker.src = "./picture/volume.png"
 
         
-        speaker.addEventListener("click",()=>{
-            playsound(card)
-        })
-        
+
 
         li.addEventListener('click',()=>{
-           li.classList.toggle('flip')
+            li.classList.toggle('flip')
+            li.classList.add('disabled')
+            unFlipCards()
+
+            speaker.addEventListener("click",()=>{
+                playsound(card)  
+            })
         })
         
         div_frontcard.appendChild(img)
@@ -62,3 +65,15 @@ function playsound(card){
     
     buttContainer.appendChild(nextpageButt)
     butt.appendChild(buttContainer)
+
+    function unFlipCards(){
+        setTimeout(() => {
+          openedCards[0].classList.toggle("flip")
+          openedCards[1].classList.toggle("flip")
+          
+          openedCards[0].classList.remove("disabled")
+          openedCards[1].classList.remove("disabled")
+          
+          openedCards = [] 
+        },1100);
+      }

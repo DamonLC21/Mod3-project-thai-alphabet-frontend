@@ -28,6 +28,7 @@
 
 #speaker-butt{
   width: 30%;
+  pointer-events:all;
 } 
 
 .card-container {
@@ -85,4 +86,17 @@
    padding-left: 70rem;
    padding-top: 4rem;
    width: 10%;
+}
+
+#nextpageButt {
+  box-shadow: 0 6px 15px rgb(187, 186, 186);
+  width: 6rem;
+  height: 2rem;
+  font-weight: 600;
+  font-weight: 600;
+}
+  
+
+.disabled {
+  pointer-events: none;
 }
