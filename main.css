@@ -62,7 +62,6 @@
 }
 
 .card__face {
-  
   text-align: center;
   font-weight: bold;
   font-size: 40px;
@@ -79,13 +78,11 @@
   width: 10rem;
 }
 
-#buttContainer {
+.button {
    display: flex;
-   flex-direction: unset;
+   justify-content: flex-end;
    font-size: 1em;
-	 padding-bottom: 0.5em;
-   padding-left: 0.5em;
-   width: 7%;
-   margin-right: 100%;
-   margin-bottom: 10em;  
+   padding-left: 70rem;
+   padding-top: 4rem;
+   width: 10%;
 }

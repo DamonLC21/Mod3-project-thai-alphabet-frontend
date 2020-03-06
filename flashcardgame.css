@@ -84,10 +84,6 @@ html {
   .disabled{
     pointer-events: none;
   }
-/* 
-  /* .flip{
-    transition: transform.5s;
-    transform-style: preserve-3d;
-  } */ */
+
 
  

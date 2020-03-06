@@ -1,4 +1,6 @@
 console.log('Alice')
+
+
 const params = new URLSearchParams(window.location.search)
 const id = params.get('id')
 
@@ -7,10 +9,10 @@ const cardsContainer = document.querySelector('.card-container')
 const cards = ('http://localhost:3000/cards')
 
 fetch(cards)
-    .then(res => res.json())
-    .then(cards => {
+.then(res => res.json())
+.then(cards => {
         cards.forEach(card => {
-        const div_frontcard = document.createElement('div')
+            const div_frontcard = document.createElement('div')
         const div_backcard = document.createElement('div')
         const li = document.createElement('li')
         const p = document.createElement('p')
@@ -30,31 +32,33 @@ fetch(cards)
         speaker.addEventListener("click",()=>{
             playsound(card)
         })
-
+        
 
         li.addEventListener('click',()=>{
            li.classList.toggle('flip')
         })
-
+        
         div_frontcard.appendChild(img)
         div_backcard.append(p, speaker)
         li.append(div_frontcard, div_backcard)
         cardsContainer.appendChild(li)
-
+        
     })
 })
 
-    function playsound(card){
-        const audio = new Audio(card.radio_url)
-        audio.play()
+function playsound(card){
+    const audio = new Audio(card.radio_url)
+    audio.play()
     }
-
+    
+    const butt = document.querySelector('.button')
     const nextpageButt = document.createElement('button')
     const buttContainer = document.createElement('div')
     
+    
     buttContainer.id = 'buttContainer'
     nextpageButt.id = 'nextpageButt'
-    nextpageButt.innerHTML = `<a href="flashcardgame.html?id">Next page</a>`
+    nextpageButt.innerHTML = `<a href="flashcardgame.html?id">Play game</a>`
     
     buttContainer.appendChild(nextpageButt)
-    document.body.appendChild(buttContainer)
+    butt.appendChild(buttContainer)
