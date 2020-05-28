@@ -13,7 +13,7 @@ npm install to download dependencies
 npm start to start app
 Note you will also need to clone down the backend repo as well which can be found below.
 
-https://github.com/Paradafaii28
+https://github.com/Paradafaii28/Mod3-Project-thai-alphabet-flashcard
 Now you can use the application.
 
 Click through tabs to learn the Thai Alphabet and flip your card you will hear the voice how to pronunciation, after you finsih learning
